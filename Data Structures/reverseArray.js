@@ -1,14 +1,23 @@
 function reverse(string) {
-  stringArray = string.split("");
+  //check input
+  if (typeof string !== "string" || string.length == 0) return "Try again🥺";
+
   let reversed = [];
 
   for (let i = string.length - 1; i >= 0; i--) {
-    reversed.push(stringArray[i]);
+    reversed.push(string[i]);
   }
 
-  reversedWord = reversed.join("");
+  const reversedWord = reversed.join("");
+  console.log(reversedWord);
+}
 
-  console.log(stringArray, reversedWord);
+//! Using JS methods
+function reverseSimplified(string) {
+  reversedWord = string.split("").reverse().join("");
+
+  console.log(reversedWord);
 }
 
 reverse("mostafa ehab");
+reverseSimplified("mostafa ehab");
