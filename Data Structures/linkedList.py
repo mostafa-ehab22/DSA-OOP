@@ -17,11 +17,32 @@ class Node:
 
 class linkedList:
     """
+    Singly-linked List
     Models Head of linked list (Only Node that list has reference to)
     """
     def __init__(self):
         self.head = None  #? Newly created lists are always empty
+        
+    #* Convenience Methods
+    def is_empty(self):
+        return self.head == None
+    
+    def size(self):
+        """
+        Returns number of nodes in list
+            Takes O(n) time
+        """
+        current = self.head
+        count = 0 
+        
+        while current:
+            count += 1
+            current = current.next_node
+        
+        return count
 
+
+#TODO###############################################################################
 
 N1 = Node(10)
 N2 = Node(20)
