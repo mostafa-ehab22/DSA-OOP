@@ -14,10 +14,15 @@ function reverse(string) {
 
 //! Using JS methods
 function reverseSimplified(string) {
-  reversedWord = string.split("").reverse().join("");
+  //reverse method called on arrays ONLY
+  reversedWord = [...string].reverse().join("");
 
   console.log(reversedWord);
 }
 
-reverse("mostafa ehab");
-reverseSimplified("mostafa ehab");
+//! Arrow function
+const reverseArrow = (str) => console.log(str.split("").reverse().join(""));
+
+reverse("Mostafa Ehab");
+reverseSimplified("Engineer");
+reverseArrow("Messi");
