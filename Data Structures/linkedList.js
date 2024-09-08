@@ -1,5 +1,12 @@
 //? Create Linked List: 10 --> 25 --> 300
+//? Instead of repeating    const newNode = { value: nodeValue, next: null }; ===> Create Node CLass
 
+class Node {
+  constructor(nodeValue) {
+    this.value = nodeValue;
+    this.next = null;
+  }
+}
 class LinkedList {
   ////////////* Initiating linked list //////////
   //! Initiating head only
@@ -15,7 +22,7 @@ class LinkedList {
 
   ////////////* Methods /////////////
   append(nodeValue) {
-    const newNode = { value: nodeValue, next: null };
+    const newNode = new Node(nodeValue);
 
     //! Change pointer of tail: null => New Node
     //? Must update pointer of tail before changing tail to be new node
@@ -31,10 +38,13 @@ class LinkedList {
   }
 
   prepend(nodeValue) {
-    const newNode = { value: nodeValue, next: this.head };
+    const newNode = new Node(nodeValue);
 
+    //! Update New node pointer
+    this.newNode.next = this.head;
+    //! Update head
     this.head = newNode;
-
+    //! Update length
     this.length++;
 
     return this;
