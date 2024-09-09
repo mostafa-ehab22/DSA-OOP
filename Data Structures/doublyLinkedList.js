@@ -1,17 +1,15 @@
-//? Create Linked List: 10 --> 25 --> 300
-//? Instead of repeating    const newNode = { value: nodeValue, next: null }; ===> Create Node CLass
-
 class Node {
   constructor(nodeValue) {
     this.value = nodeValue;
     this.next = null;
+    this.prev = null;
   }
 }
-class LinkedList {
+class DoublyLinkedList {
   ////////////* Initiating linked list //////////
   //! Initiating head only
   constructor(nodeValue) {
-    this.head = { value: nodeValue, next: null };
+    this.head = { value: nodeValue, next: null, prev: null };
 
     //! Tail equals head as list is empty @ initiation
     this.tail = this.head;
@@ -26,7 +24,9 @@ class LinkedList {
 
     //! Change pointer of tail: null => New Node
     //? Must update pointer of tail before changing tail to be new node
+
     this.tail.next = newNode;
+    newNode.prev = this.tail; //* DOUBLY-LINKED
 
     //! New node becomes the tail
     this.tail = newNode;
@@ -42,6 +42,7 @@ class LinkedList {
 
     //! Update New node pointer
     newNode.next = this.head;
+    this.head.prev = newNode; //* DOUBLY-LINKED
     //! Update head
     this.head = newNode;
     //! Update length
@@ -81,6 +82,8 @@ class LinkedList {
     //! Inserting new node
     leader.next = newNode;
     newNode.next = ending;
+    newNode.prev = leader; //* DOUBLY-LINKED
+    ending.prev = newNode; //* DOUBLY-LINKED
 
     this.length++;
     return this.printList();
@@ -94,6 +97,7 @@ class LinkedList {
     //! Remove pointer to nodeToRemove
     // I don't have to manually delete it as JS Garbage collection will remove it
     leader.next = ending;
+    ending.prev = leader; //* DOUBLY-LINKED
 
     this.length--;
     return this.printList();
@@ -113,22 +117,23 @@ class LinkedList {
   }
 }
 
-const mostafaLinkedList = new LinkedList(10);
-console.log("Initializing:\n", mostafaLinkedList);
-mostafaLinkedList.printList();
+const mostafaDoubly = new DoublyLinkedList(10);
 
-mostafaLinkedList.append(25);
-mostafaLinkedList.append(300);
-console.log("\nAppending Nodes:\n", mostafaLinkedList);
-mostafaLinkedList.printList();
+// Appending
+console.log("\nAppending");
+mostafaDoubly.append(5);
+mostafaDoubly.printList();
+mostafaDoubly.append(44);
+mostafaDoubly.printList();
 
-mostafaLinkedList.prepend("Hello");
-mostafaLinkedList.prepend("World");
-console.log("\nPrepending Nodes:\n", mostafaLinkedList);
-mostafaLinkedList.printList();
+// Prepending
+console.log("\nPrepending");
+mostafaDoubly.prepend(33);
+mostafaDoubly.printList();
+mostafaDoubly.prepend(7);
+mostafaDoubly.printList();
 
-console.log("\nInsertion");
-mostafaLinkedList.insert(2, "Cooooooool");
-
-console.log("\nRemoving");
-mostafaLinkedList.remove(2);
+// Inserting
+console.log("\nInserting");
+mostafaDoubly.insert(2, "SUIIII");
+mostafaDoubly.insert(3, "CR7");
