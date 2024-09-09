@@ -58,17 +58,26 @@ class LinkedList {
 
     const newNode = new Node(nodeValue);
 
-    //? Leader --> Node --> Ending
-
+    //* Leader --> Node --> Ending
     //! Getting leader node: precedes actual index of inserted node
     const leader = this.traverseToIndex(index - 1);
+
+    //! Getting ending node coming after leader
+    const ending = leader.next;
+
+    //! Inserting new node
+    leader.next = newNode;
+    newNode.next = ending;
+
+    this.length++;
+    return this.printList();
   }
 
   traverseToIndex(index) {
     let counter = 0;
     let currentNode = this.head;
 
-    //! Go through list until reaching index
+    //! Go through list until reaching wanted index
     while (counter !== index) {
       currentNode = currentNode.next;
       counter++;
@@ -104,3 +113,5 @@ mostafaLinkedList.prepend("Hello");
 mostafaLinkedList.prepend("World");
 console.log("\nPrepending Nodes:\n", mostafaLinkedList);
 mostafaLinkedList.printList();
+
+mostafaLinkedList.insert(2, "INSERTING!");
