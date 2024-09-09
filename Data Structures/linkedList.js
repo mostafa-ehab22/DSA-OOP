@@ -50,6 +50,19 @@ class LinkedList {
     return this;
   }
 
+  traverseToIndex(index) {
+    let counter = 0;
+    let currentNode = this.head;
+
+    //! Go through list until reaching wanted index
+    while (counter !== index) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+
+    return currentNode;
+  }
+
   insert(index, nodeValue) {
     //? Check params: If insertion index greater than length => Add to list ending
     if (index >= this.length) {
@@ -73,17 +86,19 @@ class LinkedList {
     return this.printList();
   }
 
-  traverseToIndex(index) {
-    let counter = 0;
-    let currentNode = this.head;
+  remove(index, nodeValue) {
+    const newNode = new Node(nodeValue);
 
-    //! Go through list until reaching wanted index
-    while (counter !== index) {
-      currentNode = currentNode.next;
-      counter++;
-    }
+    const leader = this.traverseToIndex(index - 1);
+    const nodeToRemove = leader.next;
+    const ending = nodeToRemove.next;
 
-    return currentNode;
+    //! Remove pointer to nodeToRemove
+    // I don't have to manually delete it as JS Garbage collection will remove it
+    leader.next = ending;
+
+    this.length--;
+    return this.printList();
   }
 
   printList() {
@@ -114,4 +129,8 @@ mostafaLinkedList.prepend("World");
 console.log("\nPrepending Nodes:\n", mostafaLinkedList);
 mostafaLinkedList.printList();
 
-mostafaLinkedList.insert(2, "INSERTING!");
+console.log("\nInsertion");
+mostafaLinkedList.insert(2, "Cooooooool");
+
+console.log("\nRemoving");
+mostafaLinkedList.remove(2);
