@@ -38,10 +38,10 @@ class LinkedList {
   }
 
   prepend(nodeValue) {
-    const newNode = new Node(nodeValue);
+    const newNode = { value: nodeValue, next: null };
 
     //! Update New node pointer
-    this.newNode.next = this.head;
+    newNode.next = this.head;
     //! Update head
     this.head = newNode;
     //! Update length
@@ -49,15 +49,31 @@ class LinkedList {
 
     return this;
   }
+
+  printList() {
+    const array = [];
+    // Start from head
+    let currentNode = this.head;
+
+    while (currentNode !== null) {
+      array.push(currentNode.value);
+      // Go to next node
+      currentNode = currentNode.next;
+    }
+    console.log(array);
+  }
 }
 
 const mostafaLinkedList = new LinkedList(10);
-console.log("Initialization:\n", mostafaLinkedList);
+console.log("Initializing:\n", mostafaLinkedList);
+mostafaLinkedList.printList();
 
 mostafaLinkedList.append(25);
 mostafaLinkedList.append(300);
 console.log("\nAppending Nodes:\n", mostafaLinkedList);
+mostafaLinkedList.printList();
 
 mostafaLinkedList.prepend("Hello");
 mostafaLinkedList.prepend("World");
 console.log("\nPrepending Nodes:\n", mostafaLinkedList);
+mostafaLinkedList.printList();
