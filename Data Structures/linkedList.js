@@ -10,8 +10,8 @@ class Node {
 class LinkedList {
   ////////////* Initiating linked list //////////
   //! Initiating head only
-  constructor(headValue) {
-    this.head = { value: headValue, next: null };
+  constructor(nodeValue) {
+    this.head = { value: nodeValue, next: null };
 
     //! Tail equals head as list is empty @ initiation
     this.tail = this.head;
@@ -48,6 +48,33 @@ class LinkedList {
     this.length++;
 
     return this;
+  }
+
+  insert(index, nodeValue) {
+    //? Check params: If insertion index greater than length => Add to list ending
+    if (index >= this.length) {
+      return this.append();
+    }
+
+    const newNode = new Node(nodeValue);
+
+    //? Leader --> Node --> Ending
+
+    //! Getting leader node: precedes actual index of inserted node
+    const leader = this.traverseToIndex(index - 1);
+  }
+
+  traverseToIndex(index) {
+    let counter = 0;
+    let currentNode = this.head;
+
+    //! Go through list until reaching index
+    while (counter !== index) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+
+    return currentNode;
   }
 
   printList() {
