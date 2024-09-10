@@ -8,7 +8,7 @@ class Account {
 
   /*
    //*    Public fields 
-  ////?   locale = navigator.language;      (Navigator is only available in browser environment)
+  ////?   locale = navigator.language;     (Navigator is only available in browser environment)
   */
 
   constructor(owner, currency, pin) {
@@ -24,10 +24,14 @@ class Account {
   deposit(value) {
     //! Accessible inside class only
     this.#movements.push(value);
+
+    return this; //? Makes deposit method chainable
   }
 
   withdraw(value) {
     this.deposit(-value);
+
+    return this;
   }
 
   //! Private method => Can ONLY be accessed internally
@@ -40,14 +44,16 @@ class Account {
     if (this.#approveLoan(value)) {
       this.deposit(value);
 
-      console.log("\nLoan Approved 😁");
+      console.log("Loan Approved 😁");
+
+      return this;
     }
   }
 
   //! Allows access only but not overriding
   //! Movements is ONLY accessible through getMovements method
   getMovements() {
-    return this.#movements;
+    console.log(this.#movements);
   }
 
   checkPin(inputPin) {
@@ -64,19 +70,25 @@ class Account {
 const mostafa = new Account("Mostafa", "EUR", 2222);
 
 mostafa.deposit(200);
-console.log("\nDepositing\n", mostafa);
+console.log("\n=> Depositing");
+mostafa.getMovements();
 
 mostafa.withdraw(150);
-console.log("\nWithdrawing\n", mostafa);
+console.log("\n=> Withdrawing");
+mostafa.getMovements();
 
 //! mostafa.#approveLoan(500);   SYNTAX ERROR => Private method
-
+console.log("\n=> REQUESTING LOAN");
 mostafa.requestLoan(500);
-console.log(mostafa);
+mostafa.getMovements();
 
-console.log("\n⌛ Checking Pin ⌛");
+console.log("\n=> Checking Pin");
 mostafa.checkPin(2222);
 
 //! mostafa.goodDay();    TypeError => Static functions not available on instances
-
 Account.goodDay();
+
+//! Chaining methods
+console.log("\n=> CHAINING METHODS");
+mostafa.deposit(500).deposit(500).withdraw(200).requestLoan(3000);
+mostafa.getMovements();
