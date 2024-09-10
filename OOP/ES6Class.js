@@ -17,7 +17,7 @@ class Account {
     this.#pin = pin;
 
     console.log(`Congrats on creating your account, ${this.owner}!`);
-    console.log(this);
+    console.log("From Account Class:", this);
   }
 
   // Public Interface (API)
@@ -67,6 +67,25 @@ class Account {
   }
 }
 
+class SavingsAccount extends Account {
+  #amount;
+
+  constructor(owner, currency, pin, amount, interest) {
+    super(owner, currency, pin);
+
+    this.#amount = amount;
+    this.interest = interest;
+
+    console.log("From SavingsAccount Class:", this);
+  }
+  calcInterest() {
+    const interest = this.#amount * this.interest;
+    const formattedInterest = new Intl.NumberFormat().format(interest);
+
+    console.log(`Expected Interest: ${formattedInterest} ${this.currency}`);
+  }
+}
+
 const mostafa = new Account("Mostafa", "EUR", 2222);
 
 mostafa.deposit(200);
@@ -92,3 +111,9 @@ Account.goodDay();
 console.log("\n=> CHAINING METHODS");
 mostafa.deposit(500).deposit(500).withdraw(200).requestLoan(3000);
 mostafa.getMovements();
+
+//! Inheritance
+console.log("\n=> INHERITANCE");
+const savingsDaniel = new SavingsAccount("Daniel", "EUR", 2222, 1_000_000, 0.3);
+
+savingsDaniel.calcInterest();
