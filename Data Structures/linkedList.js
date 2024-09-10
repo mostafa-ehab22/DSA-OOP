@@ -51,8 +51,8 @@ class LinkedList {
   }
 
   traverseToIndex(index) {
-    let counter = 0;
     let currentNode = this.head;
+    let counter = 0;
 
     //! Go through list until reaching wanted index
     while (counter !== index) {
