@@ -118,7 +118,7 @@ class LinkedList {
     }
 
     this.head.next = null; //! HEAD points to null: I didn't reassign head (Still 1st Element before reversing)
-    this.head = first; //! List is already reversed (Correct New HEAD is assigned)
+    this.head = first; //! List is already reversed (first is now the Last element => Correct New HEAD is assigned)
 
     return this.printList;
   }
