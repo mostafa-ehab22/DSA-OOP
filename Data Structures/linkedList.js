@@ -100,8 +100,27 @@ class LinkedList {
   }
 
   reverse() {
-    this.head = this.tail;
-    this.tail;
+    // CHECK: Empty OR Only 1 element
+    if (!this.head || !this.head.next) {
+      return this.head;
+    }
+
+    let first = this.head; //! 1st Element
+    let second = first.next; //! 2nd Element
+    this.tail = this.head; //! TAIL becomes HEAD
+
+    //! Loooop => 4 steps
+    while (second) {
+      const third = second.next;
+      second.next = first;
+      first = second;
+      second = third;
+    }
+
+    this.head.next = null; //! HEAD points to null: I didn't reassign head (Still 1st Element before reversing)
+    this.head = first; //! List is already reversed (Correct New HEAD is assigned)
+
+    return this.printList;
   }
 
   printList() {
