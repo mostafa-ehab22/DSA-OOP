@@ -83,6 +83,8 @@ class SavingsAccount extends Account {
     const formattedInterest = new Intl.NumberFormat().format(interest);
 
     console.log(`Expected Interest: ${formattedInterest} ${this.currency}`);
+
+    return this; // Chainable
   }
 }
 
@@ -115,5 +117,4 @@ mostafa.getMovements();
 //! Inheritance
 console.log("\n=> INHERITANCE");
 const savingsDaniel = new SavingsAccount("Daniel", "EUR", 2222, 1_000_000, 0.3);
-
 savingsDaniel.calcInterest();
