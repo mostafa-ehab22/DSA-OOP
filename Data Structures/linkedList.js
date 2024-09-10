@@ -99,6 +99,11 @@ class LinkedList {
     return this.printList();
   }
 
+  reverse() {
+    this.head = this.tail;
+    this.tail;
+  }
+
   printList() {
     const array = [];
     // Start from head
