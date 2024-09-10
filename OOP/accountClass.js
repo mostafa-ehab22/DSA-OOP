@@ -1,8 +1,15 @@
 class Account {
-  //! Private fields (properties) MUST be declared directly into class
-  //! Not inside constructor/methods
+  //TODO: Fields (properties) MUST be declared directly into class => Not inside constructor/methods
+  //TODO: Available on instances => Not on the prototype itself
+
+  //! Private fields
   #movements = [];
   #pin;
+
+  /*
+   //*    Public fields 
+  ////?   locale = navigator.language;      (Navigator is only available in browser environment)
+  */
 
   constructor(owner, currency, pin) {
     this.owner = owner;
@@ -47,6 +54,11 @@ class Account {
     if (this.#pin === inputPin) console.log("Correct Pin 👌🏼");
     else console.log("Incorrect PIN! Try Again...");
   }
+
+  //! On class ONLY (Utility functions)
+  static goodDay() {
+    console.log("\nHave a great day, Goodbye! 👋🏼");
+  }
 }
 
 const mostafa = new Account("Mostafa", "EUR", 2222);
@@ -57,10 +69,14 @@ console.log("\nDepositing\n", mostafa);
 mostafa.withdraw(150);
 console.log("\nWithdrawing\n", mostafa);
 
-//! mostafa.approveLoan(500);   SYNTAX ERROR => Private method
+//! mostafa.#approveLoan(500);   SYNTAX ERROR => Private method
 
 mostafa.requestLoan(500);
 console.log(mostafa);
 
 console.log("\n⌛ Checking Pin ⌛");
-mostafa.checkPin(2223);
+mostafa.checkPin(2222);
+
+//! mostafa.goodDay();    TypeError => Static functions not available on instances
+
+Account.goodDay();
