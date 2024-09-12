@@ -1,14 +1,16 @@
+/*
+  !  LIFO
+  ?  Stack (from top to bottom) => LINKED LIST PREPENDING
+
+  *  (((TOP: ADDING & POPPING)))     newNode -> [5] -> [4] -> [3] -> [2] -> [1] -> null     (BOTTOM)
+*/
 class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
   }
 }
-/*
-  *  LIFO
-  ?  Stack (from top to bottom) => LINKED LIST PREPENDING
-    *TOP*     [5] -> [4] -> [3] -> [2] -> [1] -> null     *BOTTOM*
-*/
+
 class Stack {
   constructor() {
     this.top = null;

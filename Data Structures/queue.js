@@ -1,4 +1,9 @@
-//! FIFO
+/*
+  !  FIFO
+  ?  Queue (from top to bottom) => LINKED LIST APPENDING
+
+  *  (((First: REMOVING)))     [5] -> [4] -> [3] -> [2] -> [1] -> newNode     (((Last: ADDING)))
+*/
 
 class Queue {
   constructor() {
