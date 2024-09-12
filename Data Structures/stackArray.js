@@ -1,4 +1,5 @@
 //*  Push | Pop | Length  ==> Already built-in arrays
+//*  LIFO
 
 class Stack {
   constructor() {

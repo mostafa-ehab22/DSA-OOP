@@ -5,11 +5,10 @@ class Node {
   }
 }
 /*
-  ! LIFO
-  Stack (from top to bottom) => LINKED LIST PREPENDING
+  *  LIFO
+  ?  Stack (from top to bottom) => LINKED LIST PREPENDING
     *TOP*     [5] -> [4] -> [3] -> [2] -> [1] -> null     *BOTTOM*
 */
-
 class Stack {
   constructor() {
     this.top = null;
