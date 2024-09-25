@@ -6,6 +6,7 @@ Welcome to my personal repository for learning Data Structures & Algorithms (DSA
 - Detailed notes on key concepts.
 - Code examples demonstrating implementation.
 - Practice problems to reinforce understanding.
+- Cover 'Master the Coding Interview' course on Udemy.
 
 ## Learning Objectives
 
