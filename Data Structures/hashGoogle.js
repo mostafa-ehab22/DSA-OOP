@@ -1,4 +1,4 @@
-//?Google Question
+//?Google Question => Return 1st repeated number
 //*Given an array = [2,5,1,2,3,5,1,2,4]:
 //It should return 2
 
@@ -28,7 +28,7 @@ function firstRecurringCharacter(input) {
   return undefined; // Return undefined if no recurring character is found
 }
 
-//! Using Map
+//! Using Map => Key + Value required
 function firstRecurringCharacter2(input) {
   const hashTable = new Map();
 

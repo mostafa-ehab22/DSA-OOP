@@ -92,7 +92,7 @@ class LinkedList {
     const ending = nodeToRemove.next;
 
     //! Remove pointer to nodeToRemove
-    // I don't have to manually delete it as JS Garbage collection will remove it
+    // Don't have to manually delete it as JS Garbage collection will remove it
     leader.next = ending;
 
     this.length--;

@@ -1,6 +1,7 @@
 /*
   !  FIFO
   ?  Queue (from top to bottom) => LINKED LIST APPENDING
+  ?  Must use Linked list to create Queue "NOT ARRAY" => Array removing is O(n) 
 
   *  (((First: REMOVING)))     [5] -> [4] -> [3] -> [2] -> [1] -> newNode     (((Last: ADDING)))
 */
@@ -21,6 +22,7 @@ class Queue {
   peek() {
     return this.first ? this.first.value : null;
   }
+
   enqueue(value) {
     const newNode = new Node(value);
 
@@ -34,6 +36,7 @@ class Queue {
     this.length++;
     return this;
   }
+
   dequeue() {
     if (this.first === this.last) {
       return null;
@@ -43,7 +46,7 @@ class Queue {
     this.first = this.first.next;
 
     if (this.length === 1) {
-      this.last = null;
+      this.last = null; //! RESETTING first & last to null
     }
 
     this.length--;

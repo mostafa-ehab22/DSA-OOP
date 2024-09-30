@@ -10,7 +10,6 @@ class Node {
     this.next = null;
   }
 }
-
 class Stack {
   constructor() {
     this.top = null;
@@ -47,7 +46,7 @@ class Stack {
 
     //! ONLY 1 Item left in stack
     if (this.top === this.bottom) {
-      this.bottom = null; // Also resets top to null
+      this.bottom = null; //! RESETTING top & bottom to null
     }
 
     const poppedItem = this.top; // Store the top node to return it later
