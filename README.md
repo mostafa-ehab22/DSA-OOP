@@ -7,6 +7,7 @@ Welcome to my personal repository for learning Data Structures & Algorithms (DSA
 - Detailed notes on key concepts.
 - Code examples demonstrating implementation.
 - Practice problems to reinforce understanding.
+- Review "Master the Coding Interview: Data Structures + Algorithms".
 
 ## Learning Objectives
 
