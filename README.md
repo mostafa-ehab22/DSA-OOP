@@ -4,6 +4,7 @@ Welcome to my personal repository for learning Data Structures & Algorithms (DSA
 
 ## Overview
 
+- [Mind Map](https://coggle.it/diagram/W5u8QkZs6r4sZM3J/t/master-the-interview)
 - Detailed notes on key concepts.
 - Code examples demonstrating implementation.
 - Practice problems to reinforce understanding.
