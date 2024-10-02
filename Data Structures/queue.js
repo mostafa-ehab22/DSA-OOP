@@ -1,6 +1,7 @@
 /*
   !  FIFO
   ?  Queue (from top to bottom) => LINKED LIST APPENDING
+  
   ?  Must use Linked list to create Queue "NOT ARRAY" => Array removing is O(n) 
 
   *  (((First: REMOVING)))     [5] -> [4] -> [3] -> [2] -> [1] -> newNode     (((Last: ADDING)))
