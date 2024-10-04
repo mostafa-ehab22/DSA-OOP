@@ -55,7 +55,29 @@ class BinarySearchTree {
     }
   }
 
-  lookup(value) {}
+  lookup(value) {
+    //! No Root (Empty tree) => return FALSE
+    if (!this.root) {
+      return false;
+    }
+
+    //! Root exists => Start from root
+    else {
+      let currentNode = this.root;
+
+      while (currentNode) {
+        if (value < currentNode.value) {
+          currentNode = currentNode.left;
+        } else if (value > currentNode.value) {
+          currentNode = currentNode.right;
+        } else {
+          return currentNode; //* FOUND NODE 🎆🍾
+        }
+      }
+      //! Doesn't Exist => return FALSE
+      return false;
+    }
+  }
 }
 
 //       9
