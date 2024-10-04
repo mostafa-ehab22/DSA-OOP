@@ -1,3 +1,13 @@
+/*
+
+* Binary Search Tree *
+
+      ROOT
+     /   \
+ Smaller  Bigger
+ 
+*/
+
 class Node {
   constructor() {
     this.left = null;
@@ -11,14 +21,46 @@ class BinarySearchTree {
     this.root = null;
   }
 
-  insert(value) {}
+  insert(value) {
+    const newNode = new Node(value);
+
+    //! No Root (Tree is empty) ==> New node is the root.
+    if (this.root === null) {
+      this.root = newNode;
+    }
+    //! Root Exists ==> Start traversing from the root.
+    else {
+      let currentNode = this.root;
+
+      while (true) {
+        //* Go LEFT ⬅️
+        if (value < currentNode.value) {
+          if (!currentNode.left) {
+            currentNode.left = newNode;
+            return this;
+          }
+          //* Keep Searching for node location
+          currentNode = currentNode.left;
+        }
+        //* Go RIGHT ↪️
+        else {
+          if (!currentNode.right) {
+            currentNode.right = newNode;
+            return this;
+          }
+          //* Keep Searching for node location
+          currentNode = currentNode.right;
+        }
+      }
+    }
+  }
 
   lookup(value) {}
 }
 
-//      9
-//   4     20
-// 1  6  15  170
+//       9
+//   4      20
+// 1   6  15  170
 
 const tree = new BinarySearchTree();
 tree.insert(9);
@@ -32,7 +74,7 @@ tree.remove(170);
 JSON.stringify(traverse(tree.root));
 console.log(tree.lookup(20));
 
-// Recursive function to check correct tree
+// Recursive function to check correct tree implementation
 function traverse(node) {
   const tree = { value: node.value };
   tree.left = node.left === null ? null : traverse(node.left);

@@ -1,46 +1,38 @@
 class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = next;
+  constructor() {
+    this.left = null;
+    this.right = null;
+    this.value = null;
   }
 }
 
-class Stack {
+class BinarySearchTree {
   constructor() {
-    this.top = null;
-    this.bottom = null;
-    this.length = 0;
+    this.root = null;
   }
 
-  peek() {
-    return this.top;
-  }
-
-  push(value) {
+  insert(value) {
     const newNode = new Node(value);
 
-    if (this.length === 0) {
-      this.top = this.bottom = newNode;
+    if (this.root === null) {
+      this.root = newNode;
     } else {
-      newNode.next = this.top;
-      this.top = newNode;
+      let currentNode = this.root;
+
+      while (true) {
+        if (value < currentNode.value) {
+          if (!currentNode.left) {
+            currentNode.left = newNode;
+          }
+          currentNode = currentNode.left;
+        } else {
+          if (!currentNode.right) {
+            currentNode.right = newNode;
+            return this;
+          }
+          currentNode = currentNode.right;
+        }
+      }
     }
-    this.length++;
-    return this;
-  }
-
-  pop() {
-    if (this.length === 0) return null;
-
-    if (this.top === this.bottom) {
-      this.bottom = null;
-    }
-
-    const poppedItem = this.top;
-
-    this.top = this.top.next;
-    this.length--;
-
-    return poppedItem;
   }
 }
