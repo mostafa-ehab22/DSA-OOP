@@ -1,8 +1,8 @@
 /*
-1. Base Case => When to stop
-2. Recursive Case => When to recurse
-3. Usually 2 returns => return recursive function to bubble up result (Not return undefined) 
-*/
+ *   1. Base Case => When to stop
+ *   2. Recursive Case => When to recurse
+ *   3. Usually 2 returns => return recursive function to bubble up result (Not return undefined)
+ */
 
 let counter = 0;
 
