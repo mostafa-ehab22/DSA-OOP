@@ -35,6 +35,7 @@ class BinarySearchTree {
       while (true) {
         //* Go LEFT ⬅️
         if (value < currentNode.value) {
+          //! NO LEFT NODE (BASE CASE) => INSERT NODE
           if (!currentNode.left) {
             currentNode.left = newNode;
             return this;
@@ -44,6 +45,7 @@ class BinarySearchTree {
         }
         //* Go RIGHT ↪️
         else {
+          //! NO RIGHT NODE (BASE CASE) => INSERT NODE
           if (!currentNode.right) {
             currentNode.right = newNode;
             return this;
@@ -65,13 +67,16 @@ class BinarySearchTree {
     else {
       let currentNode = this.root;
 
+      //* SEARCHING TREE
       while (currentNode) {
         if (value < currentNode.value) {
           currentNode = currentNode.left;
         } else if (value > currentNode.value) {
           currentNode = currentNode.right;
-        } else {
-          return currentNode; //* FOUND NODE 🎆🍾
+        }
+        //! FOUND NODE 🎆🍾
+        else {
+          return currentNode;
         }
       }
       //! Doesn't Exist => return FALSE
