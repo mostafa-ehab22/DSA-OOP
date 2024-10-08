@@ -6,6 +6,7 @@
 
 //For example: fibonacciRecursive(6) should return 8
 
+//!   O(n)
 function fibonacciIterative(position) {
   // Inital conditions
   let arr = [0, 1];
@@ -18,6 +19,7 @@ function fibonacciIterative(position) {
   return arr[position];
 }
 
+//!   O(2^n)
 function fibonacciRecursive(position) {
   // Base cases => 0 & 1 initial conditions for fibbonacci
   // position=0 ==> 0
