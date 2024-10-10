@@ -1,3 +1,6 @@
+//!  O(n^2)
+//!  SPACE: O(1)
+
 //* Searches for SMALLEST number
 
 const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];

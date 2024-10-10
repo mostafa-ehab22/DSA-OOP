@@ -1,3 +1,6 @@
+//!  O(n^2)
+//!  SPACE: O(1)
+
 //* Faster on:
 //?     1. Almost sorted | sorted
 //?     2. Small dataset
